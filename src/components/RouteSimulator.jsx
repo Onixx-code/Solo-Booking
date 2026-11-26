@@ -124,7 +124,7 @@ export function RouteSimulator({ onOpenBooking }) {
                 <strong style={{ color: '#0F172A' }}>{activeStop.km}</strong>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem' }}>
-                <Mountain size={16} color="#D97706" />
+                <Mountain size={16} color="#4F46E5" />
                 <span style={{ color: '#64748B' }}>Altitude:</span>
                 <strong style={{ color: '#0F172A' }}>{activeStop.elevation}</strong>
               </div>
@@ -139,7 +139,7 @@ export function RouteSimulator({ onOpenBooking }) {
           {/* Stepper Progress Bar */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: `repeat(${ROUTE_SIMULATOR_STOPS.length}, 1fr)`,
+            gridTemplateColumns: 'repeat(auto-fit, minmax(115px, 1fr))',
             gap: '8px',
             marginBottom: '28px'
           }}>
@@ -262,7 +262,7 @@ export function RouteSimulator({ onOpenBooking }) {
             {/* Stop Description & Buddy Secret Insights */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#D97706', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#4F46E5', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Checkpoint Overview
                 </span>
                 <h3 style={{ fontSize: '1.55rem', color: '#0F172A', marginTop: '4px', marginBottom: '8px' }}>
@@ -277,14 +277,14 @@ export function RouteSimulator({ onOpenBooking }) {
               <div style={{
                 padding: '16px 18px',
                 borderRadius: '12px',
-                background: '#FFF7ED',
-                border: '1.5px solid #FED7AA',
+                background: '#EEF2FF',
+                border: '1.5px solid #C7D2FE',
                 display: 'flex',
                 gap: '12px'
               }}>
-                <Compass size={22} color="#EA580C" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <Compass size={22} color="#4338CA" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <div>
-                  <div style={{ fontSize: '0.84rem', fontWeight: 800, color: '#C2410C', marginBottom: '4px' }}>
+                  <div style={{ fontSize: '0.84rem', fontWeight: 800, color: '#3730A3', marginBottom: '4px' }}>
                     Verified Companion Insider Tip
                   </div>
                   <div style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.5 }}>

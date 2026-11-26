@@ -94,12 +94,12 @@ export function AbroadTravellerSection({ onOpenBooking }) {
                     alignItems: 'center',
                     gap: '8px',
                     fontSize: '0.86rem',
-                    color: '#B45309',
+                    color: '#3730A3',
                     fontWeight: 700,
                     padding: '10px 18px',
                     borderRadius: '999px',
-                    background: '#FEF3C7',
-                    border: '1px solid #FCD34D',
+                    background: '#EEF2FF',
+                    border: '1px solid #A5B4FC',
                     textDecoration: 'none'
                   }}
                 >

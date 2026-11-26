@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import {
-  Compass,
   Menu,
   X,
-  Mail,
   Sparkles,
   ChevronDown,
   Bike,
   ShieldCheck,
   AlertTriangle,
-  CreditCard,
   Luggage
 } from 'lucide-react';
 import { CURRENCIES } from '../data/mockData';
@@ -27,9 +24,11 @@ export function Navbar({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currencyDropdownOpen, setCurrencyDropdownOpen] = useState(false);
+  const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
   const [bookingsCount, setBookingsCount] = useState(0);
   const [isKycVerified, setIsKycVerified] = useState(false);
   const location = useLocation();
+  const headerRef = useRef(null);
 
   const updateStateFromStore = () => {
     const bookings = StorageService.getBookings();
@@ -44,19 +43,43 @@ export function Navbar({
     return () => unsubscribe();
   }, []);
 
-  const navLinks = [
+  useEffect(() => {
+    setMoreDropdownOpen(false);
+    setCurrencyDropdownOpen(false);
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) {
+        setMoreDropdownOpen(false);
+        setCurrencyDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const primaryNavLinks = [
     { label: 'Home', path: '/' },
     { label: 'Plans & Routes', path: '/plans' },
-    { label: 'Pricing Calculator', path: '/pricing' },
+    { label: 'Pricing', path: '/pricing' },
     { label: 'Live Map', path: '/route-map' },
-    { label: 'Verified Buddies', path: '/buddies' },
+    { label: 'Buddies', path: '/buddies' }
+  ];
+
+  const moreNavLinks = [
     { label: 'Abroad Guests', path: '/abroad' },
     { label: 'Earn as Buddy', path: '/partner' },
     { label: 'FAQ', path: '/faq' }
   ];
 
+  const allNavLinks = [...primaryNavLinks, ...moreNavLinks];
+  const isMoreActive = moreNavLinks.some((link) => location.pathname === link.path);
+
   return (
     <header
+      ref={headerRef}
       style={{
         position: 'sticky',
         top: '12px',
@@ -67,19 +90,19 @@ export function Navbar({
     >
       <div
         style={{
-          maxWidth: '1360px',
+          maxWidth: '1480px',
           margin: '0 auto',
-          background: 'rgba(255, 255, 255, 0.92)',
+          background: 'rgba(255, 255, 255, 0.94)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           border: '1px solid rgba(226, 232, 240, 0.9)',
           borderRadius: '999px',
-          boxShadow: '0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(245, 158, 11, 0.1)',
-          padding: '8px 18px',
+          boxShadow: '0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(99, 102, 241, 0.1)',
+          padding: '8px 16px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: '10px',
+          gap: '12px',
           transition: 'all 0.3s ease'
         }}
       >
@@ -97,26 +120,27 @@ export function Navbar({
         >
           <div
             style={{
-              width: '40px',
-              height: '40px',
+              width: '38px',
+              height: '38px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+              background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(217, 119, 6, 0.35)',
-              transition: 'transform 0.3s ease'
+              boxShadow: '0 4px 12px rgba(79, 70, 229, 0.35)',
+              transition: 'transform 0.3s ease',
+              flexShrink: 0
             }}
           >
-            <Bike size={22} color="#FFFFFF" strokeWidth={2.3} />
+            <Bike size={20} color="#FFFFFF" strokeWidth={2.3} />
           </div>
-          <div>
+          <div style={{ whiteSpace: 'nowrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontWeight: 800,
-                  fontSize: '1.25rem',
+                  fontSize: '1.2rem',
                   letterSpacing: '-0.02em',
                   color: '#0F172A'
                 }}
@@ -124,13 +148,14 @@ export function Navbar({
                 Solo<span className="text-gradient-amber">Ride</span>
               </span>
               <span
+                className="brand-city-badge"
                 style={{
-                  fontSize: '0.62rem',
-                  padding: '2px 8px',
+                  fontSize: '0.6rem',
+                  padding: '2px 7px',
                   borderRadius: '999px',
-                  background: '#FEF3C7',
-                  color: '#B45309',
-                  border: '1px solid #FCD34D',
+                  background: '#EEF2FF',
+                  color: '#3730A3',
+                  border: '1px solid #A5B4FC',
                   fontWeight: 800,
                   letterSpacing: '0.04em'
                 }}
@@ -138,7 +163,10 @@ export function Navbar({
                 UDAIPUR
               </span>
             </div>
-            <div style={{ fontSize: '0.68rem', color: '#64748B', fontWeight: 500, lineHeight: 1 }}>
+            <div
+              className="brand-tagline"
+              style={{ fontSize: '0.66rem', color: '#64748B', fontWeight: 500, lineHeight: 1.1 }}
+            >
               Bike Partner & Companion
             </div>
           </div>
@@ -149,11 +177,11 @@ export function Navbar({
           style={{
             display: 'none',
             alignItems: 'center',
-            gap: '2px'
+            gap: '4px'
           }}
           className="desktop-nav"
         >
-          {navLinks.map((link) => {
+          {primaryNavLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
               <NavLink
@@ -162,35 +190,115 @@ export function Navbar({
                 style={{
                   fontSize: '0.84rem',
                   fontWeight: isActive ? 700 : 600,
-                  color: isActive ? '#C2410C' : '#334155',
-                  padding: '7px 13px',
+                  color: isActive ? '#3730A3' : '#334155',
+                  padding: '7px 12px',
                   borderRadius: '999px',
-                  background: isActive ? '#FFF7ED' : 'transparent',
-                  border: isActive ? '1px solid #FED7AA' : '1px solid transparent',
+                  background: isActive ? '#EEF2FF' : 'transparent',
+                  border: isActive ? '1px solid #C7D2FE' : '1px solid transparent',
                   transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                   textDecoration: 'none',
                   display: 'inline-flex',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 {link.label}
               </NavLink>
             );
           })}
+
+          {/* More Dropdown for Secondary Routes */}
+          <div style={{ position: 'relative' }}>
+            <button
+              type="button"
+              onClick={() => {
+                setMoreDropdownOpen(!moreDropdownOpen);
+                setCurrencyDropdownOpen(false);
+              }}
+              style={{
+                fontSize: '0.84rem',
+                fontWeight: isMoreActive ? 700 : 600,
+                color: isMoreActive ? '#3730A3' : '#334155',
+                padding: '7px 12px',
+                borderRadius: '999px',
+                background: isMoreActive ? '#EEF2FF' : 'transparent',
+                border: isMoreActive ? '1px solid #C7D2FE' : '1px solid transparent',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                whiteSpace: 'nowrap',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <span>More</span>
+              <ChevronDown
+                size={14}
+                style={{
+                  transform: moreDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.2s ease'
+                }}
+              />
+            </button>
+
+            {moreDropdownOpen && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '120%',
+                  left: 0,
+                  background: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  borderRadius: '14px',
+                  padding: '6px',
+                  minWidth: '170px',
+                  boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
+                  zIndex: 100,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '2px'
+                }}
+              >
+                {moreNavLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <NavLink
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setMoreDropdownOpen(false)}
+                      style={{
+                        padding: '8px 12px',
+                        borderRadius: '9px',
+                        fontSize: '0.84rem',
+                        fontWeight: isActive ? 700 : 600,
+                        color: isActive ? '#3730A3' : '#334155',
+                        background: isActive ? '#EEF2FF' : 'transparent',
+                        textDecoration: 'none',
+                        whiteSpace: 'nowrap',
+                        transition: 'background 0.15s ease'
+                      }}
+                    >
+                      {link.label}
+                    </NavLink>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Right Action Bar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-          
           {/* 🚨 SOS & GPS Emergency Button */}
           <button
             onClick={onOpenSos}
             title="Live GPS & Emergency SOS Safety Hub"
+            className="sos-header-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '5px',
-              padding: '6px 12px',
+              padding: '6px 11px',
               borderRadius: '999px',
               background: '#FEF2F2',
               border: '1.5px solid #F87171',
@@ -198,11 +306,12 @@ export function Navbar({
               fontSize: '0.78rem',
               fontWeight: 800,
               cursor: 'pointer',
+              whiteSpace: 'nowrap',
               boxShadow: '0 2px 8px rgba(239, 68, 68, 0.15)'
             }}
           >
             <AlertTriangle size={14} className="animate-pulse" />
-            <span>SOS / GPS</span>
+            <span className="hide-on-xs">SOS / GPS</span>
           </button>
 
           {/* 🛡️ KYC Verification Pill */}
@@ -213,18 +322,19 @@ export function Navbar({
               display: 'none',
               alignItems: 'center',
               gap: '5px',
-              padding: '6px 12px',
+              padding: '6px 11px',
               borderRadius: '999px',
-              background: isKycVerified ? '#ECFDF5' : '#FFF7ED',
-              border: isKycVerified ? '1.5px solid #10B981' : '1.5px solid #FED7AA',
-              color: isKycVerified ? '#047857' : '#C2410C',
+              background: isKycVerified ? '#ECFDF5' : '#EEF2FF',
+              border: isKycVerified ? '1.5px solid #10B981' : '1.5px solid #C7D2FE',
+              color: isKycVerified ? '#047857' : '#3730A3',
               fontSize: '0.78rem',
               fontWeight: 700,
-              cursor: 'pointer'
+              cursor: 'pointer',
+              whiteSpace: 'nowrap'
             }}
             className="kyc-header-btn"
           >
-            <ShieldCheck size={14} color={isKycVerified ? '#059669' : '#EA580C'} />
+            <ShieldCheck size={14} color={isKycVerified ? '#059669' : '#4338CA'} />
             <span>{isKycVerified ? 'KYC Verified' : 'Verify ID'}</span>
           </button>
 
@@ -232,18 +342,20 @@ export function Navbar({
           <button
             onClick={onOpenMyBookings}
             title="View Real-Time Bookings Database"
+            className="trips-header-btn"
             style={{
-              display: 'inline-flex',
+              display: 'none',
               alignItems: 'center',
               gap: '6px',
-              padding: '6px 12px',
+              padding: '6px 11px',
               borderRadius: '999px',
               background: '#F0F9FF',
               border: '1px solid #BAE6FD',
               color: '#0369A1',
               fontSize: '0.78rem',
               fontWeight: 700,
-              cursor: 'pointer'
+              cursor: 'pointer',
+              whiteSpace: 'nowrap'
             }}
           >
             <Luggage size={14} />
@@ -267,7 +379,10 @@ export function Navbar({
           {/* Currency Switcher */}
           <div style={{ position: 'relative' }}>
             <button
-              onClick={() => setCurrencyDropdownOpen(!currencyDropdownOpen)}
+              onClick={() => {
+                setCurrencyDropdownOpen(!currencyDropdownOpen);
+                setMoreDropdownOpen(false);
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -279,6 +394,7 @@ export function Navbar({
                 color: '#0F172A',
                 fontSize: '0.78rem',
                 fontWeight: 700,
+                whiteSpace: 'nowrap',
                 transition: 'all 0.2s ease'
               }}
             >
@@ -290,7 +406,7 @@ export function Navbar({
               <div
                 style={{
                   position: 'absolute',
-                  top: '115%',
+                  top: '120%',
                   right: 0,
                   background: '#FFFFFF',
                   border: '1px solid #E2E8F0',
@@ -315,8 +431,8 @@ export function Navbar({
                       borderRadius: '8px',
                       fontSize: '0.8rem',
                       fontWeight: 600,
-                      color: currentCurrency === curr ? '#B45309' : '#334155',
-                      background: currentCurrency === curr ? '#FEF3C7' : 'transparent',
+                      color: currentCurrency === curr ? '#3730A3' : '#334155',
+                      background: currentCurrency === curr ? '#EEF2FF' : 'transparent',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
@@ -334,8 +450,8 @@ export function Navbar({
           {/* Book Ride Button */}
           <button
             onClick={() => onOpenBooking()}
-            className="btn-primary"
-            style={{ padding: '8px 16px', fontSize: '0.82rem' }}
+            className="btn-primary book-header-btn"
+            style={{ padding: '8px 15px', fontSize: '0.82rem', whiteSpace: 'nowrap' }}
           >
             <Sparkles size={14} />
             <span>Book Buddy</span>
@@ -375,10 +491,10 @@ export function Navbar({
             boxShadow: '0 15px 35px rgba(15, 23, 42, 0.1)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '8px'
+            gap: '6px'
           }}
         >
-          {navLinks.map((link) => {
+          {allNavLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
               <NavLink
@@ -388,10 +504,10 @@ export function Navbar({
                 style={{
                   fontSize: '0.95rem',
                   fontWeight: isActive ? 700 : 600,
-                  color: isActive ? '#B45309' : '#334155',
+                  color: isActive ? '#3730A3' : '#334155',
                   padding: '10px 14px',
                   borderRadius: '12px',
-                  background: isActive ? '#FEF3C7' : 'transparent',
+                  background: isActive ? '#EEF2FF' : 'transparent',
                   textDecoration: 'none'
                 }}
               >
@@ -498,7 +614,19 @@ export function Navbar({
 
       {/* Responsive Media Query Helper */}
       <style>{`
-        @media (min-width: 1100px) {
+        @media (min-width: 640px) {
+          .trips-header-btn {
+            display: inline-flex !important;
+          }
+        }
+        @media (max-width: 520px) {
+          .hide-on-xs,
+          .brand-tagline,
+          .brand-city-badge {
+            display: none !important;
+          }
+        }
+        @media (min-width: 1180px) {
           .desktop-nav {
             display: flex !important;
           }

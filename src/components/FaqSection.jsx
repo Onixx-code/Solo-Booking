@@ -39,9 +39,9 @@ export function FaqSection() {
                 className="glass-panel"
                 style={{
                   borderRadius: '16px',
-                  background: isOpen ? '#FFF7ED' : '#FFFFFF',
-                  border: isOpen ? '1.5px solid #FED7AA' : '1px solid #E2E8F0',
-                  boxShadow: isOpen ? '0 8px 24px rgba(234, 88, 12, 0.08)' : '0 2px 8px rgba(15, 23, 42, 0.04)',
+                  background: isOpen ? '#EEF2FF' : '#FFFFFF',
+                  border: isOpen ? '1.5px solid #C7D2FE' : '1px solid #E2E8F0',
+                  boxShadow: isOpen ? '0 8px 24px rgba(67, 56, 202, 0.08)' : '0 2px 8px rgba(15, 23, 42, 0.04)',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease'
                 }}
@@ -58,20 +58,20 @@ export function FaqSection() {
                     color: '#0F172A'
                   }}
                 >
-                  <span style={{ fontSize: '0.98rem', fontWeight: 800, paddingRight: '16px', color: isOpen ? '#92400E' : '#0F172A' }}>
+                  <span style={{ fontSize: '0.98rem', fontWeight: 800, paddingRight: '16px', color: isOpen ? '#312E81' : '#0F172A' }}>
                     {faq.q}
                   </span>
                   <div style={{
                     width: '28px',
                     height: '28px',
                     borderRadius: '50%',
-                    background: isOpen ? '#FEF3C7' : '#F1F5F9',
+                    background: isOpen ? '#EEF2FF' : '#F1F5F9',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    {isOpen ? <ChevronUp size={16} color="#D97706" /> : <ChevronDown size={16} color="#64748B" />}
+                    {isOpen ? <ChevronUp size={16} color="#4F46E5" /> : <ChevronDown size={16} color="#64748B" />}
                   </div>
                 </button>
 
@@ -81,7 +81,7 @@ export function FaqSection() {
                     fontSize: '0.9rem',
                     color: '#475569',
                     lineHeight: 1.65,
-                    borderTop: '1px solid rgba(245, 158, 11, 0.15)',
+                    borderTop: '1px solid rgba(99, 102, 241, 0.15)',
                     paddingTop: '14px'
                   }}>
                     {faq.a}

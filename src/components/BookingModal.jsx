@@ -202,7 +202,7 @@ export function BookingModal({
           overflowY: 'auto',
           padding: 'clamp(20px, 3vw, 36px)',
           background: '#FFFFFF',
-          border: '1.5px solid #FCD34D',
+          border: '1.5px solid #A5B4FC',
           boxShadow: '0 25px 60px rgba(15, 23, 42, 0.2)',
           position: 'relative'
         }}
@@ -255,14 +255,14 @@ export function BookingModal({
             </h3>
 
             <p style={{ fontSize: '0.94rem', color: '#475569', maxWidth: '480px', margin: '0 auto 16px' }}>
-              Booking Reference: <strong style={{ color: '#D97706' }}>#{bookingRef}</strong>. Ride details saved to your active dashboard and emailed to Bhuvan (<strong style={{ color: '#0F172A' }}>bhuvandwivedi1234@gmail.com</strong>).
+              Booking Reference: <strong style={{ color: '#4F46E5' }}>#{bookingRef}</strong>. Ride details saved to your active dashboard and emailed to Bhuvan (<strong style={{ color: '#0F172A' }}>bhuvandwivedi1234@gmail.com</strong>).
             </p>
 
             {/* QUICK ADVANCE PAYMENT CTA */}
             <div
               style={{
-                background: '#FFF7ED',
-                border: '1.5px solid #FED7AA',
+                background: '#EEF2FF',
+                border: '1.5px solid #C7D2FE',
                 borderRadius: '16px',
                 padding: '16px 20px',
                 marginBottom: '18px',
@@ -275,11 +275,11 @@ export function BookingModal({
               }}
             >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#C2410C', fontWeight: 800, fontSize: '0.92rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#3730A3', fontWeight: 800, fontSize: '0.92rem' }}>
                   <CreditCard size={18} />
                   <span>Lock Ride with ₹200 UPI Advance Token</span>
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#EA580C', marginTop: '2px' }}>
+                <div style={{ fontSize: '0.8rem', color: '#4338CA', marginTop: '2px' }}>
                   Scan QR via GPay, PhonePe or Paytm. Remaining petrol is paid at pump.
                 </div>
               </div>
@@ -388,11 +388,11 @@ export function BookingModal({
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem' }}>
-                <ShieldCheck size={18} color={kycStatus?.isVerified ? '#059669' : '#D97706'} />
+                <ShieldCheck size={18} color={kycStatus?.isVerified ? '#059669' : '#4F46E5'} />
                 <span style={{ fontWeight: 700, color: '#0F172A' }}>
                   {kycStatus?.isVerified ? 'KYC Verified Traveller' : 'Government ID Verification'}
                 </span>
-                <span style={{ color: kycStatus?.isVerified ? '#059669' : '#B45309', fontSize: '0.75rem', fontWeight: 600 }}>
+                <span style={{ color: kycStatus?.isVerified ? '#059669' : '#3730A3', fontSize: '0.75rem', fontWeight: 600 }}>
                   {kycStatus?.isVerified ? '✓ Priority Companion Enabled' : '• Verification Recommended'}
                 </span>
               </div>
@@ -430,9 +430,9 @@ export function BookingModal({
                     style={{
                       padding: '10px',
                       borderRadius: '10px',
-                      background: travellerType === 'domestic' ? '#FEF3C7' : '#F8FAFC',
-                      border: travellerType === 'domestic' ? '2px solid #D97706' : '1px solid #CBD5E1',
-                      color: travellerType === 'domestic' ? '#92400E' : '#64748B',
+                      background: travellerType === 'domestic' ? '#EEF2FF' : '#F8FAFC',
+                      border: travellerType === 'domestic' ? '2px solid #4F46E5' : '1px solid #CBD5E1',
+                      color: travellerType === 'domestic' ? '#312E81' : '#64748B',
                       fontWeight: 700,
                       fontSize: '0.85rem'
                     }}
@@ -591,7 +591,7 @@ export function BookingModal({
                   <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 700 }}>
                     COMPANION RIDER FEE
                   </span>
-                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#D97706' }}>
+                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#4F46E5' }}>
                     {formatPrice(companionFee)}
                   </div>
                 </div>
@@ -637,7 +637,7 @@ export function BookingModal({
                 <span>•</span>
                 <span>
                   Email:{' '}
-                  <a href="mailto:bhuvandwivedi1234@gmail.com" style={{ color: '#D97706', fontWeight: 600 }}>
+                  <a href="mailto:bhuvandwivedi1234@gmail.com" style={{ color: '#4F46E5', fontWeight: 600 }}>
                     bhuvandwivedi1234@gmail.com
                   </a>
                 </span>

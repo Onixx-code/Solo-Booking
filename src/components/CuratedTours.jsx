@@ -36,7 +36,7 @@ export function CuratedTours({ currentCurrency, onOpenBooking }) {
         {/* Tour Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
           gap: '24px'
         }}>
           {TOUR_PACKAGES.map((tour) => (
@@ -97,7 +97,7 @@ export function CuratedTours({ currentCurrency, onOpenBooking }) {
                   color: '#FFFFFF'
                 }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Clock size={13} color="#F59E0B" /> {tour.duration}
+                    <Clock size={13} color="#6366F1" /> {tour.duration}
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                     <MapPin size={13} color="#38BDF8" /> {tour.distance}
@@ -117,7 +117,7 @@ export function CuratedTours({ currentCurrency, onOpenBooking }) {
                   <h3 style={{ fontSize: '1.2rem', marginBottom: '4px', color: '#0F172A' }}>
                     {tour.title}
                   </h3>
-                  <div style={{ fontSize: '0.78rem', color: '#D97706', marginBottom: '14px', fontWeight: 700 }}>
+                  <div style={{ fontSize: '0.78rem', color: '#4F46E5', marginBottom: '14px', fontWeight: 700 }}>
                     {tour.subtitle}
                   </div>
 

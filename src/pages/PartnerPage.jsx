@@ -15,7 +15,7 @@ export function PartnerPage() {
           color: '#64748B',
           marginBottom: '20px'
         }}>
-          <Link to="/" style={{ color: '#D97706', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <Link to="/" style={{ color: '#4F46E5', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
             <ArrowLeft size={14} /> Home
           </Link>
           <span>/</span>
@@ -24,11 +24,11 @@ export function PartnerPage() {
 
         <div className="glass-panel" style={{
           padding: 'clamp(24px, 4vw, 44px)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 100%)',
-          border: '1.5px solid #FED7AA',
+          background: 'linear-gradient(135deg, #FFFFFF 0%, #EEF2FF 100%)',
+          border: '1.5px solid #C7D2FE',
           borderRadius: '24px',
           marginBottom: '20px',
-          boxShadow: '0 12px 35px -5px rgba(234, 88, 12, 0.08)'
+          boxShadow: '0 12px 35px -5px rgba(67, 56, 202, 0.08)'
         }}>
           <div className="badge-pill badge-amber" style={{ marginBottom: '12px' }}>
             EARN WITH PRIDE IN UDAIPUR

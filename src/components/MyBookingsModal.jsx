@@ -146,17 +146,17 @@ export function MyBookingsModal({
           <div
             onClick={onOpenKyc}
             style={{
-              background: kyc?.isVerified ? '#ECFDF5' : '#FFF7ED',
-              border: kyc?.isVerified ? '1px solid #A7F3D0' : '1px solid #FED7AA',
+              background: kyc?.isVerified ? '#ECFDF5' : '#EEF2FF',
+              border: kyc?.isVerified ? '1px solid #A7F3D0' : '1px solid #C7D2FE',
               padding: '12px 14px',
               borderRadius: '12px',
               cursor: 'pointer'
             }}
           >
-            <div style={{ fontSize: '0.72rem', color: kyc?.isVerified ? '#065F46' : '#C2410C', fontWeight: 700 }}>
+            <div style={{ fontSize: '0.72rem', color: kyc?.isVerified ? '#065F46' : '#3730A3', fontWeight: 700 }}>
               KYC VERIFICATION
             </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 800, color: kyc?.isVerified ? '#059669' : '#EA580C', display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <div style={{ fontSize: '0.92rem', fontWeight: 800, color: kyc?.isVerified ? '#059669' : '#4338CA', display: 'flex', alignItems: 'center', gap: '4px' }}>
               {kyc?.isVerified ? 'Verified Traveller ✓' : 'Pending Verification ⚠️'}
             </div>
           </div>
@@ -239,7 +239,7 @@ export function MyBookingsModal({
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                        <span style={{ fontWeight: 800, fontSize: '0.85rem', color: '#D97706' }}>
+                        <span style={{ fontWeight: 800, fontSize: '0.85rem', color: '#4F46E5' }}>
                           #{b.id}
                         </span>
                         <span
@@ -261,7 +261,7 @@ export function MyBookingsModal({
                             padding: '2px 8px',
                             borderRadius: '999px',
                             background: isPaid ? '#ECFDF5' : '#FFFBEB',
-                            color: isPaid ? '#047857' : '#B45309'
+                            color: isPaid ? '#047857' : '#3730A3'
                           }}
                         >
                           {isPaid ? `Advance Paid (₹${b.advanceAmount || 200})` : 'Advance Pending'}
@@ -329,13 +329,13 @@ export function MyBookingsModal({
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '6px',
-                          background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+                          background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
                           color: '#FFFFFF',
                           fontSize: '0.78rem',
                           fontWeight: 700,
                           padding: '7px 14px',
                           borderRadius: '8px',
-                          boxShadow: '0 2px 8px rgba(217, 119, 6, 0.3)'
+                          boxShadow: '0 2px 8px rgba(79, 70, 229, 0.3)'
                         }}
                       >
                         <CreditCard size={14} /> Pay ₹200 Advance (UPI/QR)

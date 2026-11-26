@@ -604,7 +604,7 @@ export function SosSafetyModal({ isOpen, onClose }) {
           </div>
 
           {geoError && (
-            <div style={{ fontSize: '0.74rem', color: '#B45309', marginTop: '8px' }}>
+            <div style={{ fontSize: '0.74rem', color: '#3730A3', marginTop: '8px' }}>
               ℹ️ {geoError}
             </div>
           )}
@@ -714,7 +714,7 @@ export function SosSafetyModal({ isOpen, onClose }) {
               { label: 'National Emergency', number: '112', color: '#DC2626' },
               { label: 'Women Helpline', number: '1091', color: '#BE185D' },
               { label: 'Udaipur Police Control', number: '100', color: '#1E40AF' },
-              { label: 'Bhuvan (Founder Direct)', number: '+917627011955', color: '#D97706' },
+              { label: 'Bhuvan (Founder Direct)', number: '+917627011955', color: '#4F46E5' },
               { label: 'Medical Ambulance', number: '108', color: '#059669' },
               { label: 'Tourist Police Station', number: '02942422201', color: '#4338CA' }
             ].map((hotline, idx) => (

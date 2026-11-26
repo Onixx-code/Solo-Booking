@@ -61,10 +61,10 @@ export function BecomeBuddySection() {
         
         <div className="glass-panel" style={{
           padding: 'clamp(24px, 4vw, 48px)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 100%)',
-          border: '1.5px solid #FED7AA',
+          background: 'linear-gradient(135deg, #FFFFFF 0%, #EEF2FF 100%)',
+          border: '1.5px solid #C7D2FE',
           borderRadius: '28px',
-          boxShadow: '0 20px 45px rgba(234, 88, 12, 0.08)'
+          boxShadow: '0 20px 45px rgba(67, 56, 202, 0.08)'
         }}>
           
           <div style={{
@@ -96,7 +96,7 @@ export function BecomeBuddySection() {
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <Bike size={18} color="#D97706" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <Bike size={18} color="#4F46E5" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <span style={{ fontSize: '0.86rem', color: '#0F172A' }}>
                     <strong>Zero Out-of-Pocket Petrol:</strong> The solo traveller pays all petrol and food expenses directly.
                   </span>

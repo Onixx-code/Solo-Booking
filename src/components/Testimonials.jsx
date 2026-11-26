@@ -26,7 +26,7 @@ export function Testimonials() {
         {/* Testimonials Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
           gap: '24px'
         }}>
           {TESTIMONIALS.map((t) => (
@@ -50,7 +50,7 @@ export function Testimonials() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                   <div style={{ display: 'flex', gap: '3px' }}>
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} size={15} fill="#D97706" color="#D97706" />
+                      <Star key={i} size={15} fill="#4F46E5" color="#4F46E5" />
                     ))}
                   </div>
                   <span style={{ fontSize: '0.74rem', color: '#0284C7', fontWeight: 700 }}>
@@ -82,13 +82,13 @@ export function Testimonials() {
                   width: '42px',
                   height: '42px',
                   borderRadius: '50%',
-                  background: '#FEF3C7',
-                  border: '1px solid #FCD34D',
+                  background: '#EEF2FF',
+                  border: '1px solid #A5B4FC',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontWeight: 800,
-                  color: '#B45309'
+                  color: '#3730A3'
                 }}>
                   {t.name.charAt(0)}
                 </div>

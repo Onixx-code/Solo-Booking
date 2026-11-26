@@ -19,7 +19,7 @@ import { AbroadPage } from './pages/AbroadPage';
 import { PartnerPage } from './pages/PartnerPage';
 import { FaqPage } from './pages/FaqPage';
 
-import { Mail, Sparkles, MessageCircle, AlertTriangle, ShieldCheck, Luggage } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 export default function App() {
   const [currency, setCurrency] = useState('INR');
@@ -141,6 +141,16 @@ export default function App() {
               path="/faq"
               element={<FaqPage />}
             />
+            <Route
+              path="*"
+              element={
+                <HomePage
+                  currentCurrency={currency}
+                  onOpenBooking={handleOpenBooking}
+                  onSelectTour={handleSelectTour}
+                />
+              }
+            />
           </Routes>
         </main>
 
@@ -194,113 +204,42 @@ export default function App() {
           onOpenSos={handleOpenSos}
         />
 
-        {/* Floating Quick Action Dock */}
-        <div
+        {/* Clean Single Floating WhatsApp Button (other actions live cleanly in Navbar) */}
+        <a
+          href="https://wa.me/917627011955?text=Hi%20Bhuvan,%20I%20am%20visiting%20Udaipur%20and%20looking%20for%20a%20riding%20buddy!"
+          target="_blank"
+          rel="noreferrer"
+          title="Chat on WhatsApp with Bhuvan Dwivedi (+91 7627011955)"
           style={{
             position: 'fixed',
-            bottom: '24px',
-            right: '24px',
+            bottom: '22px',
+            right: '22px',
             zIndex: 900,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-            alignItems: 'flex-end'
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '11px 18px',
+            borderRadius: '999px',
+            background: '#25D366',
+            boxShadow: '0 8px 24px rgba(37, 211, 102, 0.4)',
+            color: '#FFFFFF',
+            fontSize: '0.86rem',
+            fontWeight: 800,
+            textDecoration: 'none',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-2px) scale(1.03)';
+            e.currentTarget.style.boxShadow = '0 12px 28px rgba(37, 211, 102, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+            e.currentTarget.style.boxShadow = '0 8px 24px rgba(37, 211, 102, 0.4)';
           }}
         >
-          {/* 🚨 Emergency SOS & Live GPS Floating Trigger */}
-          <button
-            onClick={handleOpenSos}
-            title="Emergency SOS & Live GPS Location"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '10px 18px',
-              borderRadius: '999px',
-              background: '#DC2626',
-              boxShadow: '0 6px 20px rgba(220, 38, 38, 0.45)',
-              color: '#FFFFFF',
-              fontSize: '0.86rem',
-              fontWeight: 800,
-              cursor: 'pointer',
-              border: '1.5px solid #FCA5A5',
-              transition: 'all 0.25s ease'
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px) scale(1.03)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0) scale(1)')}
-          >
-            <AlertTriangle size={18} className="animate-pulse" />
-            <span>🚨 SOS & Live GPS</span>
-          </button>
-
-          {/* Direct WhatsApp Chat with Bhuvan */}
-          <a
-            href="https://wa.me/917627011955?text=Hi%20Bhuvan,%20I%20am%20visiting%20Udaipur%20and%20looking%20for%20a%20riding%20buddy!"
-            target="_blank"
-            rel="noreferrer"
-            title="Chat on WhatsApp with Bhuvan Dwivedi"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '10px 18px',
-              borderRadius: '999px',
-              background: '#25D366',
-              boxShadow: '0 6px 20px rgba(37, 211, 102, 0.4)',
-              color: '#FFFFFF',
-              fontSize: '0.86rem',
-              fontWeight: 800,
-              textDecoration: 'none',
-              transition: 'all 0.25s ease'
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
-          >
-            <MessageCircle size={18} />
-            <span>WhatsApp (+91 7627011955)</span>
-          </a>
-
-          {/* Quick Database / My Trips */}
-          <button
-            onClick={handleOpenMyBookings}
-            title="View My Bookings & DB Status"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '9px 16px',
-              borderRadius: '999px',
-              background: '#FFFFFF',
-              border: '1.5px solid #BAE6FD',
-              boxShadow: '0 6px 20px rgba(2, 132, 199, 0.15)',
-              color: '#0369A1',
-              fontSize: '0.82rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              transition: 'all 0.25s ease'
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
-          >
-            <Luggage size={16} color="#0284C7" />
-            <span>My Bookings (DB)</span>
-          </button>
-
-          {/* Instant Booking Trigger Button */}
-          <button
-            onClick={() => handleOpenBooking()}
-            className="btn-primary animate-pulse-glow"
-            style={{
-              padding: '12px 22px',
-              fontSize: '0.92rem',
-              borderRadius: '999px',
-              boxShadow: '0 8px 25px rgba(217, 119, 6, 0.45)'
-            }}
-          >
-            <Sparkles size={18} />
-            <span>Book Udaipur Buddy</span>
-          </button>
-        </div>
+          <MessageCircle size={18} />
+          <span>WhatsApp</span>
+        </a>
 
       </div>
     </BrowserRouter>

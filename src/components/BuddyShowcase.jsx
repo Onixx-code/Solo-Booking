@@ -26,7 +26,7 @@ export function BuddyShowcase({ onOpenBooking }) {
         {/* Buddies Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 270px), 1fr))',
           gap: '24px'
         }}>
           {VERIFIED_BUDDIES.map((buddy) => (
@@ -51,14 +51,14 @@ export function BuddyShowcase({ onOpenBooking }) {
                     width: '60px',
                     height: '60px',
                     borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+                    background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: '#FFFFFF',
                     fontSize: '1.4rem',
                     fontWeight: 800,
-                    boxShadow: '0 4px 15px rgba(217, 119, 6, 0.3)',
+                    boxShadow: '0 4px 15px rgba(79, 70, 229, 0.3)',
                     position: 'relative'
                   }}>
                     {buddy.name.charAt(0)}
@@ -83,8 +83,8 @@ export function BuddyShowcase({ onOpenBooking }) {
                     <h3 style={{ fontSize: '1.15rem', color: '#0F172A', marginBottom: '2px' }}>
                       {buddy.name}
                     </h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: '#D97706' }}>
-                      <Star size={14} fill="#D97706" color="#D97706" />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: '#4F46E5' }}>
+                      <Star size={14} fill="#4F46E5" color="#4F46E5" />
                       <strong>{buddy.rating}</strong>
                       <span style={{ color: '#64748B' }}>({buddy.ridesCompleted} rides)</span>
                     </div>
@@ -125,7 +125,7 @@ export function BuddyShowcase({ onOpenBooking }) {
                   marginBottom: '18px'
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Bike size={14} color="#D97706" />
+                    <Bike size={14} color="#4F46E5" />
                     <span><strong>Machine:</strong> {buddy.bike}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

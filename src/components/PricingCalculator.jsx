@@ -99,16 +99,16 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                         padding: '14px',
                         borderRadius: '12px',
                         textAlign: 'left',
-                        background: duration === d.id ? '#FEF3C7' : '#FFFFFF',
-                        border: duration === d.id ? '2px solid #D97706' : '1px solid #E2E8F0',
-                        boxShadow: duration === d.id ? '0 4px 14px rgba(217, 119, 6, 0.15)' : 'none',
+                        background: duration === d.id ? '#EEF2FF' : '#FFFFFF',
+                        border: duration === d.id ? '2px solid #4F46E5' : '1px solid #E2E8F0',
+                        boxShadow: duration === d.id ? '0 4px 14px rgba(79, 70, 229, 0.15)' : 'none',
                         transition: 'all 0.25s ease'
                       }}
                     >
                       <div style={{
                         fontWeight: 800,
                         fontSize: '0.9rem',
-                        color: duration === d.id ? '#92400E' : '#0F172A',
+                        color: duration === d.id ? '#312E81' : '#0F172A',
                         marginBottom: '4px'
                       }}>
                         {d.title}
@@ -139,9 +139,9 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                           padding: '12px 16px',
                           borderRadius: '12px',
                           cursor: 'pointer',
-                          background: isSelected ? '#FEF3C7' : '#FFFFFF',
-                          border: isSelected ? '1.5px solid #D97706' : '1px solid #E2E8F0',
-                          boxShadow: isSelected ? '0 4px 12px rgba(217, 119, 6, 0.12)' : 'none',
+                          background: isSelected ? '#EEF2FF' : '#FFFFFF',
+                          border: isSelected ? '1.5px solid #4F46E5' : '1px solid #E2E8F0',
+                          boxShadow: isSelected ? '0 4px 12px rgba(79, 70, 229, 0.12)' : 'none',
                           transition: 'all 0.2s ease'
                         }}
                       >
@@ -150,7 +150,7 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                             width: '36px',
                             height: '36px',
                             borderRadius: '8px',
-                            background: isSelected ? '#D97706' : '#F1F5F9',
+                            background: isSelected ? '#4F46E5' : '#F1F5F9',
                             color: isSelected ? '#FFFFFF' : '#475569',
                             display: 'flex',
                             alignItems: 'center',
@@ -159,7 +159,7 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                             <Bike size={18} />
                           </div>
                           <div>
-                            <div style={{ fontWeight: 800, fontSize: '0.9rem', color: isSelected ? '#92400E' : '#0F172A' }}>
+                            <div style={{ fontWeight: 800, fontSize: '0.9rem', color: isSelected ? '#312E81' : '#0F172A' }}>
                               {v.name}
                             </div>
                             <div style={{ fontSize: '0.74rem', color: '#64748B' }}>
@@ -172,7 +172,7 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                           <span style={{
                             fontSize: '0.86rem',
                             fontWeight: 800,
-                            color: isSelected ? '#B45309' : '#475569'
+                            color: isSelected ? '#3730A3' : '#475569'
                           }}>
                             {formatPrice(duration === 'half' ? v.baseFeeHalfDay : v.baseFeeFullDay)}
                           </span>
@@ -230,10 +230,10 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
             <div>
               <div className="glass-panel" style={{
                 padding: '28px',
-                background: 'linear-gradient(145deg, #FFFFFF, #FFF7ED)',
-                border: '1.5px solid #FED7AA',
+                background: 'linear-gradient(145deg, #FFFFFF, #EEF2FF)',
+                border: '1.5px solid #C7D2FE',
                 borderRadius: '20px',
-                boxShadow: '0 15px 35px rgba(234, 88, 12, 0.08)',
+                boxShadow: '0 15px 35px rgba(67, 56, 202, 0.08)',
                 position: 'sticky',
                 top: '90px'
               }}>
@@ -261,22 +261,22 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                   alignItems: 'center',
                   padding: '12px 14px',
                   borderRadius: '10px',
-                  background: '#FEF3C7',
-                  border: '1px solid #FCD34D',
+                  background: '#EEF2FF',
+                  border: '1px solid #A5B4FC',
                   marginBottom: '12px'
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <ShieldCheck size={18} color="#D97706" />
+                    <ShieldCheck size={18} color="#4F46E5" />
                     <div>
-                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: '#92400E' }}>
+                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: '#312E81' }}>
                         Platform & Companion Fee
                       </div>
-                      <div style={{ fontSize: '0.72rem', color: '#B45309' }}>
+                      <div style={{ fontSize: '0.72rem', color: '#3730A3' }}>
                         Founder Bhuvan pays this directly to your companion boy
                       </div>
                     </div>
                   </div>
-                  <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#B45309' }}>
+                  <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#3730A3' }}>
                     {formatPrice(companionBaseINR)}
                   </div>
                 </div>
@@ -357,7 +357,7 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                       <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#0F172A' }}>
                         {formatPrice(grandTotalEstimate)}
                       </div>
-                      <div style={{ fontSize: '0.72rem', color: '#D97706', fontWeight: 700 }}>
+                      <div style={{ fontSize: '0.72rem', color: '#4F46E5', fontWeight: 700 }}>
                         Only {formatPrice(companionBaseINR)} advance platform fee
                       </div>
                     </div>
@@ -387,7 +387,7 @@ export function PricingCalculator({ currentCurrency, onOpenBooking }) {
                   textAlign: 'center',
                   color: '#64748B'
                 }}>
-                  Direct inquiries to Bhuvan Dwivedi: <a href="mailto:bhuvandwivedi1234@gmail.com" style={{ color: '#D97706', fontWeight: 600 }}>bhuvandwivedi1234@gmail.com</a>
+                  Direct inquiries to Bhuvan Dwivedi: <a href="mailto:bhuvandwivedi1234@gmail.com" style={{ color: '#4F46E5', fontWeight: 600 }}>bhuvandwivedi1234@gmail.com</a>
                 </div>
 
               </div>

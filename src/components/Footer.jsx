@@ -27,7 +27,7 @@ export function Footer({ onOpenBooking }) {
                 width: '38px',
                 height: '38px',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+                background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -55,13 +55,13 @@ export function Footer({ onOpenBooking }) {
               gap: '8px',
               padding: '6px 14px',
               borderRadius: '999px',
-              background: '#FEF3C7',
-              border: '1px solid #FCD34D',
+              background: '#EEF2FF',
+              border: '1px solid #A5B4FC',
               fontSize: '0.78rem',
-              color: '#92400E',
+              color: '#312E81',
               fontWeight: 700
             }}>
-              <Shield size={14} color="#D97706" />
+              <Shield size={14} color="#4F46E5" />
               <span>Founder: Bhuvan Dwivedi</span>
             </div>
           </div>
@@ -86,9 +86,9 @@ export function Footer({ onOpenBooking }) {
               Community & Guides
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem', color: '#475569' }}>
-              <Link to="/partner" style={{ color: '#D97706', fontWeight: 700 }}>• Earn ₹1,200 - ₹2,500/day as Buddy</Link>
+              <Link to="/partner" style={{ color: '#4F46E5', fontWeight: 700 }}>• Earn ₹1,200 - ₹2,500/day as Buddy</Link>
               <Link to="/buddies">• Female Rider Companions (Priya)</Link>
-              <Link to="/expansion">• Coming Soon: Jaipur, Manali, Goa</Link>
+              <Link to="/plans">• Coming Soon: Jaipur, Manali, Goa</Link>
               <Link to="/faq">• Financial Split & Fuel Policy</Link>
               <a href="mailto:bhuvandwivedi1234@gmail.com">• Contact Founder Bhuvan</a>
             </div>
@@ -133,15 +133,15 @@ export function Footer({ onOpenBooking }) {
                   gap: '10px',
                   padding: '10px 14px',
                   borderRadius: '12px',
-                  background: '#FEF3C7',
-                  border: '1px solid #FCD34D',
-                  color: '#92400E',
+                  background: '#EEF2FF',
+                  border: '1px solid #A5B4FC',
+                  color: '#312E81',
                   fontSize: '0.84rem',
                   fontWeight: 700,
                   textDecoration: 'none'
                 }}
               >
-                <Mail size={16} color="#D97706" style={{ flexShrink: 0 }} />
+                <Mail size={16} color="#4F46E5" style={{ flexShrink: 0 }} />
                 <span>bhuvandwivedi1234@gmail.com</span>
               </a>
 

@@ -141,8 +141,8 @@ export function PaymentModal({
           overflowY: 'auto',
           padding: 'clamp(20px, 3.5vw, 36px)',
           background: '#FFFFFF',
-          border: '1.5px solid #F59E0B',
-          boxShadow: '0 25px 60px rgba(245, 158, 11, 0.2)',
+          border: '1.5px solid #6366F1',
+          boxShadow: '0 25px 60px rgba(99, 102, 241, 0.2)',
           position: 'relative'
         }}
       >
@@ -232,7 +232,7 @@ export function PaymentModal({
 
               <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '4px' }}>
                 <span style={{ color: '#64748B', fontWeight: 700 }}>Total Advance:</span>
-                <strong style={{ color: '#D97706', fontSize: '1.1rem' }}>₹{completedTxn.amount}</strong>
+                <strong style={{ color: '#4F46E5', fontSize: '1.1rem' }}>₹{completedTxn.amount}</strong>
               </div>
             </div>
 
@@ -264,8 +264,8 @@ export function PaymentModal({
             {/* Quick Amount Selector */}
             <div
               style={{
-                background: '#FFF7ED',
-                border: '1.5px solid #FED7AA',
+                background: '#EEF2FF',
+                border: '1.5px solid #C7D2FE',
                 borderRadius: '14px',
                 padding: '14px 18px',
                 marginBottom: '18px',
@@ -277,7 +277,7 @@ export function PaymentModal({
               }}
             >
               <div>
-                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#C2410C', textTransform: 'uppercase' }}>
+                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#3730A3', textTransform: 'uppercase' }}>
                   Advance Token Amount
                 </span>
                 <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A' }}>
@@ -296,8 +296,8 @@ export function PaymentModal({
                       borderRadius: '8px',
                       fontSize: '0.8rem',
                       fontWeight: 700,
-                      border: amount === preset ? '1.5px solid #D97706' : '1px solid #CBD5E1',
-                      background: amount === preset ? '#F59E0B' : '#FFFFFF',
+                      border: amount === preset ? '1.5px solid #4F46E5' : '1px solid #CBD5E1',
+                      background: amount === preset ? '#6366F1' : '#FFFFFF',
                       color: amount === preset ? '#FFFFFF' : '#475569',
                       cursor: 'pointer'
                     }}
@@ -335,15 +335,15 @@ export function PaymentModal({
                       gap: '4px',
                       padding: '10px 8px',
                       borderRadius: '12px',
-                      border: isActive ? '2px solid #D97706' : '1px solid #E2E8F0',
-                      background: isActive ? '#FEF3C7' : '#FFFFFF',
-                      color: isActive ? '#92400E' : '#475569',
+                      border: isActive ? '2px solid #4F46E5' : '1px solid #E2E8F0',
+                      background: isActive ? '#EEF2FF' : '#FFFFFF',
+                      color: isActive ? '#312E81' : '#475569',
                       fontWeight: isActive ? 800 : 500,
                       fontSize: '0.78rem',
                       transition: 'all 0.2s ease'
                     }}
                   >
-                    <Icon size={18} color={isActive ? '#D97706' : '#64748B'} />
+                    <Icon size={18} color={isActive ? '#4F46E5' : '#64748B'} />
                     <span>{tab.label}</span>
                   </button>
                 );
@@ -407,7 +407,7 @@ export function PaymentModal({
                       type="button"
                       onClick={handleCopyUpi}
                       style={{
-                        color: copiedUpi ? '#059669' : '#D97706',
+                        color: copiedUpi ? '#059669' : '#4F46E5',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '2px',
@@ -623,9 +623,9 @@ export function PaymentModal({
                       style={{
                         padding: '12px',
                         borderRadius: '10px',
-                        border: selectedBank === bank.id ? '2px solid #D97706' : '1px solid #CBD5E1',
-                        background: selectedBank === bank.id ? '#FEF3C7' : '#FFFFFF',
-                        color: selectedBank === bank.id ? '#92400E' : '#0F172A',
+                        border: selectedBank === bank.id ? '2px solid #4F46E5' : '1px solid #CBD5E1',
+                        background: selectedBank === bank.id ? '#EEF2FF' : '#FFFFFF',
+                        color: selectedBank === bank.id ? '#312E81' : '#0F172A',
                         fontWeight: selectedBank === bank.id ? 800 : 500,
                         fontSize: '0.85rem',
                         textAlign: 'left'

@@ -50,9 +50,9 @@ export function ExpansionRoadmap() {
               style={{
                 padding: '20px',
                 borderRadius: '16px',
-                background: city.active ? '#FFF7ED' : '#FFFFFF',
-                border: city.active ? '2px solid #EA580C' : '1px solid #E2E8F0',
-                boxShadow: city.active ? '0 8px 24px rgba(234, 88, 12, 0.12)' : '0 4px 12px rgba(15, 23, 42, 0.04)',
+                background: city.active ? '#EEF2FF' : '#FFFFFF',
+                border: city.active ? '2px solid #4338CA' : '1px solid #E2E8F0',
+                boxShadow: city.active ? '0 8px 24px rgba(67, 56, 202, 0.12)' : '0 4px 12px rgba(15, 23, 42, 0.04)',
                 position: 'relative'
               }}
             >
@@ -60,13 +60,13 @@ export function ExpansionRoadmap() {
                 <span className={`badge-pill ${city.active ? 'badge-amber' : 'badge-cyan'}`} style={{ fontSize: '0.68rem' }}>
                   {city.status}
                 </span>
-                <MapPin size={16} color={city.active ? '#D97706' : '#94A3B8'} />
+                <MapPin size={16} color={city.active ? '#4F46E5' : '#94A3B8'} />
               </div>
 
               <h3 style={{ fontSize: '1.05rem', color: '#0F172A', marginBottom: '4px' }}>
                 {city.name}
               </h3>
-              <div style={{ fontSize: '0.78rem', color: city.active ? '#B45309' : '#64748B', fontWeight: 600 }}>
+              <div style={{ fontSize: '0.78rem', color: city.active ? '#3730A3' : '#64748B', fontWeight: 600 }}>
                 {city.rides}
               </div>
             </div>
